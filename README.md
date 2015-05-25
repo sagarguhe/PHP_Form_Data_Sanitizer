@@ -1,6 +1,6 @@
 # PHP Form Data Sanitizer
 
-This class lets you quickly sanitize the request array and make it ready to store in the database. This is my first try at OOP PHP so there my be many issues with standards and some concepts. I will appreciate you incredible [contribution](#contribution).
+This class lets you quickly sanitize the request array and make it ready to store in the database. This is my first try at OOP PHP so there may be many issues with standards and concepts. I will appreciate you incredible [contribution](#contribution).
 <hr>
 
 ## content
