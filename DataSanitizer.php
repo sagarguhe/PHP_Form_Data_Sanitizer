@@ -47,6 +47,33 @@ class DataSanitizer {
 	}
 
 	/**
+	 * alternative to htmlspecialchars
+	 * @param  string $str string to sanitize
+	 * @return string      sanitized string
+	 */
+	public function sanitizeStr($str){
+		return htmlspecialchars($str);
+	}
+
+	/**
+	 * alternative to addslashes
+	 * @param  string $str string to addslashes to
+	 * @return string      slashed string
+	 */
+	public function sqlEscapeStr($str){
+		return addslashes($str);
+	}
+
+	/**
+	 * sanitize html and escape string to be added to the database
+	 * @param  string $str 
+	 * @return string      [description]
+	 */
+	public function sanitizeAndSqlEscString($str) {
+		return addslashes(htmlspecialchars($str));
+	}
+
+	/**
 	 * static method to sanitize the data string
 	 * @param  string $elem the array element as a string
 	 * @return string       sanitized string
@@ -68,8 +95,8 @@ class DataSanitizer {
 	 * static method to sanitize and escape string tobe used to store in database
 	 * @return [type] sanitized and escaped string 
 	 */
-	static function __sanitizeAndEscapeString(){
-		$str = htmlspecialchars($this->data);
+	static function __sanitizeAndEscapeString($elem){
+		$str = htmlspecialchars($elem);
 		return addslashes($str);
 	}
 
