@@ -13,13 +13,18 @@
 class DataSanitizer {
 
 	protected $data = array();
+        protected $str = "";
 	
 	/**
-	 * Initializes data array
-	 * @param array $data the data array which is to be sanitized
+	 * Initializes data array/string
+	 * @param array $data the data array/string which is to be sanitized
 	 */
-	public function __construct($data = array()) {
-		$this->data = $data;
+	public function __construct($data = null) {
+                if(is_array($data)){
+		        $this->data = $data;
+                }else{
+                        $this->str = $data;
+                }
 	}
 
 	/**
@@ -57,20 +62,18 @@ class DataSanitizer {
 
 	/**
 	 * alternative to addslashes
-	 * @param  string $str string to addslashes to
 	 * @return string      slashed string
 	 */
-	public function sqlEscapeStr($str){
-		return addslashes($str);
+	public function sqlEscapeStr(){
+		return addslashes($this->str);
 	}
 
 	/**
-	 * sanitize html and escape string to be added to the database
-	 * @param  string $str 
+	 * sanitize html and escape string to be added to the database 
 	 * @return string      [description]
 	 */
-	public function sanitizeAndSqlEscString($str) {
-		return addslashes(htmlspecialchars($str));
+	public function sanitizeAndSqlEscString() {
+		return addslashes(htmlspecialchars($this->str));
 	}
 
 	/**
